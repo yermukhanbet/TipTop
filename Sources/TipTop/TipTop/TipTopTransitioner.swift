@@ -35,7 +35,14 @@ final class TipTopTransitioner: NSObject, UIViewControllerAnimatedTransitioning 
         
         transitionContext.containerView.insertSubview(toVC.view, aboveSubview: fromVC.view)
         
-        self.animateTransition(with: finalFrame, isPushing: false)
+        UIView.animate(
+            withDuration: transitionDuration(using: transitionContext),
+            animations: {
+                fromVC.view.frame = finalFrame
+        }, completion: {_ in
+            self.isPushing = false
+                transitionContext.completeTransition(true)
+        })
     }
     
     private func popVC(_ transitionContext: UIViewControllerContextTransitioning) {
@@ -45,19 +52,13 @@ final class TipTopTransitioner: NSObject, UIViewControllerAnimatedTransitioning 
         
         transitionContext.containerView.insertSubview(toVC.view, belowSubview: fromVC.view)
         
-        self.animateTransition(with: self.fromView.frame, isPushing: true)
-    }
-    
-    private func animateTransition(with finalFrame: CGRect, isPushing: Bool) {
-        
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
             animations: {
-                fromVC.view.frame = finalFrame
+                fromVC.view.frame = toVC.view.frame
         }, completion: {_ in
-            self.isPushing = isPushing
+            self.isPushing = true
                 transitionContext.completeTransition(true)
         })
-        
     }
 }
