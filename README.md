@@ -49,7 +49,7 @@ You can install TipTop library through SPM.
 let package = Package(
   name: "MyPackage",
   dependencies: [
-    .package(url: "https://github.com/yermukhanbet/TipTop.git", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/yermukhanbet/TipTop.git", .upToNextMajor(from: "1.2.0"))
   ],
   targets: [
     .target(name: "MyTarget", dependencies: ["TipTop"])
