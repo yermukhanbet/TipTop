@@ -15,7 +15,7 @@ Default UINavigationController provides only two push and pop transitions, which
 TipTop provides developer to push new VC from the frame of any subview inside of presenting ViewController.
 
 
-https://user-images.githubusercontent.com/46320390/159279793-2e1ad71e-5756-44bf-9f5b-b0b8b5258181.mp4
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/46320390/159494356-89c85872-7d0e-4e43-9aa9-bd53c37122a8.gif)
 
 
 ## Usage
