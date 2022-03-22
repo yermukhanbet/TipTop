@@ -12,7 +12,7 @@
 TipTop is a library for customized animatable navigation transition between ViewControllers. 
 Default UINavigationController provides only two push and pop transitions, which are quite boring.
 
-TipTop provides developer to push new VC from the frame of any subview inside of presenting ViewController.
+TipTop provides option for developer to push new VC from the frame of any subview inside of presenting ViewController.
 
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/46320390/159494356-89c85872-7d0e-4e43-9aa9-bd53c37122a8.gif)
