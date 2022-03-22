@@ -27,10 +27,11 @@ final class TipTopTransitioner: NSObject, UIViewControllerAnimatedTransitioning 
     
     private func pushVC(_ transitionContext: UIViewControllerContextTransitioning) {
         
-        let fromVC = transitionContext.viewController(forKey: .from)!
-        let toVC = transitionContext.viewController(forKey: .to)!
+        let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
+        let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
         
         let finalFrame = transitionContext.finalFrame(for: toVC)
+        
         toVC.view.frame = self.fromView.frame
         
         transitionContext.containerView.insertSubview(toVC.view, aboveSubview: fromVC.view)
@@ -38,9 +39,9 @@ final class TipTopTransitioner: NSObject, UIViewControllerAnimatedTransitioning 
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
             animations: {
-                fromVC.view.frame = finalFrame
+                toVC.view.frame = finalFrame
         }, completion: {_ in
-            self.isPushing = false
+                self.isPushing = false
                 transitionContext.completeTransition(true)
         })
     }
@@ -55,9 +56,9 @@ final class TipTopTransitioner: NSObject, UIViewControllerAnimatedTransitioning 
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
             animations: {
-                fromVC.view.frame = toVC.view.frame
+                fromVC.view.frame = self.fromView.frame
         }, completion: {_ in
-            self.isPushing = true
+                self.isPushing = true
                 transitionContext.completeTransition(true)
         })
     }
